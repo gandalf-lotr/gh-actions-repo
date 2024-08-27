@@ -1,6 +1,9 @@
 name: 01 - Building blocks
 
-on: push
+on: 
+# push:
+# workflow_dispatch allows manual trigger in github console
+  workflow_dispatch:
 
 jobs:
     echo-sam:
