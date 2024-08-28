@@ -2,7 +2,7 @@ name: 02 - Workflow Events
 
 on: 
   #push:
-  pull_request:
+  #pull_request:
   #commetned cron job as it triggers job every 5 min"
   #schedule:
   #  - cron: '*/5 * * * *'
