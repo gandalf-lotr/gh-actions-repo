@@ -5,6 +5,9 @@ on: push
 jobs:
     build:
         runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: 04-using-actions/react-app
         steps:
             - name: checkout code
               uses: actions/checkout@v4
@@ -17,6 +20,9 @@ jobs:
             - name: install dependecies
               run: npm ci
               working-directory: 04-using-actions/react-app
+        # below example takes working directory from default section of run given in builds
+            - name: run unit tests
+              run: npm run test
 
         # checkout code from repo
         # install dependencies for react app
