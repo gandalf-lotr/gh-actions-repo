@@ -7,6 +7,7 @@ on:
 env:
     WORKFLOW_VAR: 'I am a workflow env var'
     OVERWRITTEN:  'I will be overwritten'
+    UNDEFINED_VAR_WITH_DEFAULT: vars.REPOSITORY_VAR 
 
 jobs:
     echo:

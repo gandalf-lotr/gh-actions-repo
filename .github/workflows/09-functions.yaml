@@ -1,0 +1,28 @@
+name: 09 - Using Functions
+
+on: 
+    - workflow_dispatch
+    - pull_request
+
+jobs:
+    echo1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: print workflow events
+              run: |
+                cat << EOF
+                ${{toJson(github.event.pull_request.labels)}}
+            - name: Failing step
+              run: exit 1
+            - name: I will be skipped
+              if: ${{ success() }}
+              run: echo "i will print if prev step succeed"
+            - name: i will execute
+              if: ${{ failure()}}
+              run: echo "i will print if prev step fails"
+            - name: i will print other than cancel
+              if: ${{ !cancelled()}}
+              run: echo "i will print always except when its cancelled "
+            - name: i will print when cancel
+              if: ${{ cancelled()}}
+              run: echo "i will print always  when its cancelled "
