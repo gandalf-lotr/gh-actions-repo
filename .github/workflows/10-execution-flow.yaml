@@ -18,10 +18,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Running unit tests
-              run: "Running tests..."
+              run: echo "Running tests..."
             - name: Failing tests
               if: ${{ !inputs.pass-unit-tests}}
-              run: echo "rruning failed test"
+              run: |
+                echo "running failed test"
     deploy-nonprod:
         runs-on: ubuntu-latest
         #runs only when other jobs succeed , need cmd used
